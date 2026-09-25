@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+build/
+.build/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Local secrets / auth
+.env
+.env.*
+storage_state.json
+
+# Editors / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Development artifacts: never committed
+graphify-out/
+.graphify*/
+.claude/
+.agents/
+.forge/
+.planning/
+docs/
+raw/
+*.local.md
+NOTES.md
+TODO.md
