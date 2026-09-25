@@ -13,7 +13,7 @@ Your documents stay in NotebookLM. Only the answers come back into context.
 
 <img src="assets/architecture.gif" alt="Animated architecture diagram: a question travels from Claude Code or Codex through the notebookmcp server and a warm notebooklm-py session to NotebookLM, and a cited answer travels back" width="100%">
 
-<sub>The request flow, step by step. A gravel graph made with <a href="https://www.gravelgraph.com">GravelGraph</a>.</sub>
+<sub>The request flow, step by step. A gravel graph made with <a href="https://www.gravelgraph.com">GravelGraph</a>: <a href="https://www.gravelgraph.com/?view=1&amp;src=https%3A%2F%2Fraw.githubusercontent.com%2FREllwood%2FNotebookMCP%2Fmain%2Fassets%2Farchitecture.gravel">open it live</a> or <a href="#architecture-diagram">edit it</a>.</sub>
 
 </div>
 
@@ -225,6 +225,25 @@ uv run pytest
 The tests run against an in-memory stand-in for NotebookLM, plus one test that launches
 the real server over stdio, so they need no Google account.
 
+### Architecture diagram
+
+The animation at the top is exported from
+[`assets/architecture.gravel`](assets/architecture.gravel), a diagram file for
+[GravelGraph](https://www.gravelgraph.com). GravelGraph is free and runs in your browser
+with no account.
+
+- **View it live.** [Open the interactive diagram][live-diagram] to step through the
+  flow and read each payload. It loads this repo's copy of the file.
+- **Edit it.** In the live view, choose **Open editable copy**. You can also open
+  [gravelgraph.com](https://www.gravelgraph.com) and use **File → Open file…** to pick
+  `assets/architecture.gravel`. When you're done, use **File → Save file…** and save
+  over the repo copy.
+- **Re-export the GIF.** Choose **Export → Animated GIF**, turn on
+  **Narrate scenario**, set **Seconds per step** to 2, then replace
+  `assets/architecture.gif`.
+
+[live-diagram]: https://www.gravelgraph.com/?view=1&src=https%3A%2F%2Fraw.githubusercontent.com%2FREllwood%2FNotebookMCP%2Fmain%2Fassets%2Farchitecture.gravel
+
 <br>
 
 <div align="center">
@@ -232,6 +251,6 @@ the real server over stdio, so they need no Google account.
 The architecture animation at the top is a <b>gravel graph</b>, made with
 <a href="https://www.gravelgraph.com">GravelGraph</a>, a free in-browser tool for
 animated architecture diagrams. It traces one question from your agent to NotebookLM
-and back.
+and back. Its source is <a href="assets/architecture.gravel"><code>assets/architecture.gravel</code></a>.
 </sub>
 </div>
