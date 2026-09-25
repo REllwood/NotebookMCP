@@ -11,9 +11,9 @@ Your documents stay in NotebookLM. Only the answers come back into context.
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-ready-D97757)
 ![Codex](https://img.shields.io/badge/Codex-ready-111111)
 
-<img src="assets/architecture.gif" alt="Animated architecture graph: a question travels from Claude Code or Codex through the notebookmcp server to NotebookLM, and a cited answer travels back" width="100%">
+<img src="assets/architecture.gif" alt="Animated architecture diagram: a question travels from Claude Code or Codex through the notebookmcp server and a warm notebooklm-py session to NotebookLM, and a cited answer travels back" width="100%">
 
-<sub>Architecture of the request flow, drawn as a <a href="https://github.com/safishamsi/graphify">graphify</a> knowledge graph of this repo.</sub>
+<sub>The request flow, step by step. A gravel graph made with <a href="https://www.gravelgraph.com">GravelGraph</a>.</sub>
 
 </div>
 
@@ -229,9 +229,9 @@ the real server over stdio, so they need no Google account.
 
 <div align="center">
 <sub>
-The architecture animation at the top is a <b>graphify graph</b>: a knowledge graph
-that <a href="https://github.com/safishamsi/graphify">graphify</a> built from this
-repo's code and README, animated to trace one question from your agent to NotebookLM
+The architecture animation at the top is a <b>gravel graph</b>, made with
+<a href="https://www.gravelgraph.com">GravelGraph</a>, a free in-browser tool for
+animated architecture diagrams. It traces one question from your agent to NotebookLM
 and back.
 </sub>
 </div>
