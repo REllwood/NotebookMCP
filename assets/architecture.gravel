@@ -1,0 +1,529 @@
+{
+  "version": 1,
+  "id": "d_notebookmcp",
+  "title": "NotebookMCP request flow",
+  "theme": "dark",
+  "nodes": [
+    {
+      "id": "g_local",
+      "type": "shape",
+      "position": {
+        "x": -50,
+        "y": -150
+      },
+      "data": {
+        "kind": "shape",
+        "label": "",
+        "color": "#64748b",
+        "shape": "rectangle",
+        "fill": "tinted",
+        "opacity": 0.55
+      },
+      "width": 1000,
+      "height": 620,
+      "zIndex": -2
+    },
+    {
+      "id": "g_google",
+      "type": "shape",
+      "position": {
+        "x": 1010,
+        "y": -150
+      },
+      "data": {
+        "kind": "shape",
+        "label": "",
+        "color": "#4285F4",
+        "shape": "rectangle",
+        "fill": "tinted",
+        "opacity": 0.55
+      },
+      "width": 290,
+      "height": 620,
+      "zIndex": -2
+    },
+    {
+      "id": "t_local",
+      "type": "shape",
+      "position": {
+        "x": -30,
+        "y": -140
+      },
+      "data": {
+        "kind": "shape",
+        "label": "Your machine",
+        "color": "#94a3b8",
+        "shape": "text"
+      },
+      "width": 200,
+      "height": 28,
+      "zIndex": -1
+    },
+    {
+      "id": "t_google",
+      "type": "shape",
+      "position": {
+        "x": 1030,
+        "y": -140
+      },
+      "data": {
+        "kind": "shape",
+        "label": "Google",
+        "color": "#8ab4f8",
+        "shape": "text"
+      },
+      "width": 120,
+      "height": 28,
+      "zIndex": -1
+    },
+    {
+      "id": "n_claude",
+      "type": "arch",
+      "position": {
+        "x": 0,
+        "y": 60
+      },
+      "data": {
+        "kind": "client",
+        "label": "Claude Code",
+        "sublabel": "coding agent",
+        "color": "#D97757"
+      },
+      "width": 210,
+      "height": 64
+    },
+    {
+      "id": "n_codex",
+      "type": "arch",
+      "position": {
+        "x": 0,
+        "y": 250
+      },
+      "data": {
+        "kind": "client",
+        "label": "Codex",
+        "sublabel": "coding agent",
+        "color": "#10A37F"
+      },
+      "width": 210,
+      "height": 64
+    },
+    {
+      "id": "n_mcp",
+      "type": "arch",
+      "position": {
+        "x": 340,
+        "y": 155
+      },
+      "data": {
+        "kind": "api",
+        "label": "notebookmcp",
+        "sublabel": "MCP server · stdio",
+        "color": "#8b5cf6"
+      },
+      "width": 210,
+      "height": 64
+    },
+    {
+      "id": "n_cache",
+      "type": "arch",
+      "position": {
+        "x": 340,
+        "y": -60
+      },
+      "data": {
+        "kind": "cache",
+        "label": "Lookup cache",
+        "sublabel": "notebooks & sources"
+      },
+      "width": 210,
+      "height": 64
+    },
+    {
+      "id": "n_docs",
+      "type": "arch",
+      "position": {
+        "x": 340,
+        "y": 370
+      },
+      "data": {
+        "kind": "storage",
+        "label": "Local docs",
+        "sublabel": "PDF · MD · DOCX"
+      },
+      "width": 210,
+      "height": 64
+    },
+    {
+      "id": "n_lib",
+      "type": "arch",
+      "position": {
+        "x": 690,
+        "y": 155
+      },
+      "data": {
+        "kind": "service",
+        "label": "notebooklm-py",
+        "sublabel": "warm HTTPS session",
+        "color": "#a78bfa",
+        "icon": "network"
+      },
+      "width": 210,
+      "height": 64
+    },
+    {
+      "id": "n_auth",
+      "type": "arch",
+      "position": {
+        "x": 690,
+        "y": -60
+      },
+      "data": {
+        "kind": "auth",
+        "label": "~/.notebooklm",
+        "sublabel": "saved sign-in",
+        "icon": "secrets"
+      },
+      "width": 210,
+      "height": 64
+    },
+    {
+      "id": "n_nlm",
+      "type": "arch",
+      "position": {
+        "x": 1050,
+        "y": 155
+      },
+      "data": {
+        "kind": "service",
+        "label": "NotebookLM",
+        "sublabel": "Gemini Notebook",
+        "color": "#4285F4",
+        "icon": "ml"
+      },
+      "width": 210,
+      "height": 64
+    },
+    {
+      "id": "n_src",
+      "type": "arch",
+      "position": {
+        "x": 1050,
+        "y": 370
+      },
+      "data": {
+        "kind": "database",
+        "label": "Your sources",
+        "sublabel": "PDFs · sites · video",
+        "color": "#f472b6",
+        "icon": "search"
+      },
+      "width": 210,
+      "height": 64
+    },
+    {
+      "id": "t_credit",
+      "type": "shape",
+      "position": {
+        "x": 1010,
+        "y": 500
+      },
+      "data": {
+        "kind": "shape",
+        "label": "Made with GravelGraph · gravelgraph.com",
+        "color": "#64748b",
+        "shape": "text"
+      },
+      "width": 290,
+      "height": 28,
+      "zIndex": -1
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_claude",
+      "source": "n_claude",
+      "target": "n_mcp",
+      "sourceHandle": "r",
+      "targetHandle": "l",
+      "type": "flow",
+      "data": {
+        "label": "ask()",
+        "animation": {
+          "enabled": true,
+          "direction": "both",
+          "speed": 1.2,
+          "color": "#22d3ee",
+          "density": 1,
+          "style": "dots",
+          "tokenLabel": "ask"
+        },
+        "payload": {
+          "kind": "json",
+          "content": "{\n  \"tool\": \"ask\",\n  \"question\": \"How do refresh tokens rotate?\",\n  \"notebook\": \"specs\"\n}",
+          "description": "The agent asks a question instead of reading the docs."
+        },
+        "payloadOffset": {
+          "x": -150,
+          "y": -240
+        }
+      }
+    },
+    {
+      "id": "e_codex",
+      "source": "n_codex",
+      "target": "n_mcp",
+      "sourceHandle": "r",
+      "targetHandle": "l",
+      "type": "flow",
+      "data": {
+        "label": "ask()",
+        "animation": {
+          "enabled": true,
+          "direction": "both",
+          "speed": 1.2,
+          "color": "#22d3ee",
+          "density": 1,
+          "style": "dots",
+          "tokenLabel": "ask"
+        }
+      }
+    },
+    {
+      "id": "e_cache",
+      "source": "n_mcp",
+      "target": "n_cache",
+      "sourceHandle": "t",
+      "targetHandle": "b",
+      "type": "flow",
+      "data": {
+        "label": "resolve",
+        "animation": {
+          "enabled": true,
+          "direction": "both",
+          "speed": 1.2,
+          "color": "#34d399",
+          "density": 1,
+          "style": "dots",
+          "tokenLabel": "specs"
+        },
+        "payload": {
+          "kind": "text",
+          "content": "\"specs\" → Product Specs (12 sources)",
+          "description": "Notebook found by name from a 60 s cache."
+        }
+      }
+    },
+    {
+      "id": "e_auth",
+      "source": "n_auth",
+      "target": "n_lib",
+      "sourceHandle": "b",
+      "targetHandle": "t",
+      "type": "flow",
+      "data": {
+        "label": "at startup",
+        "animation": {
+          "enabled": true,
+          "direction": "forward",
+          "speed": 1.2,
+          "color": "#94a3b8",
+          "density": 1,
+          "style": "dots",
+          "tokenLabel": "cookies"
+        }
+      }
+    },
+    {
+      "id": "e_lib",
+      "source": "n_mcp",
+      "target": "n_lib",
+      "sourceHandle": "r",
+      "targetHandle": "l",
+      "type": "flow",
+      "data": {
+        "label": "chat.ask",
+        "animation": {
+          "enabled": true,
+          "direction": "both",
+          "speed": 1.2,
+          "color": "#a78bfa",
+          "density": 1,
+          "style": "dots",
+          "tokenLabel": "ask"
+        }
+      }
+    },
+    {
+      "id": "e_https",
+      "source": "n_lib",
+      "target": "n_nlm",
+      "sourceHandle": "r",
+      "targetHandle": "l",
+      "type": "flow",
+      "data": {
+        "label": "HTTPS",
+        "animation": {
+          "enabled": true,
+          "direction": "both",
+          "speed": 1.2,
+          "color": "#f59e0b",
+          "density": 1,
+          "style": "dots",
+          "tokenLabel": "POST"
+        },
+        "payload": {
+          "kind": "http",
+          "content": "POST https://notebooklm.google.com/…\n\n\"How do refresh tokens rotate?\"",
+          "description": "One request on the already-open session."
+        },
+        "payloadOffset": {
+          "x": -10,
+          "y": 45
+        }
+      }
+    },
+    {
+      "id": "e_src",
+      "source": "n_nlm",
+      "target": "n_src",
+      "sourceHandle": "b",
+      "targetHandle": "t",
+      "type": "flow",
+      "data": {
+        "label": "grounded",
+        "animation": {
+          "enabled": true,
+          "direction": "both",
+          "speed": 1.2,
+          "color": "#f472b6",
+          "density": 1,
+          "style": "dots",
+          "tokenLabel": "search"
+        }
+      }
+    },
+    {
+      "id": "e_docs",
+      "source": "n_docs",
+      "target": "n_mcp",
+      "sourceHandle": "t",
+      "targetHandle": "b",
+      "type": "flow",
+      "data": {
+        "label": "add_source",
+        "animation": {
+          "enabled": true,
+          "direction": "forward",
+          "speed": 1.2,
+          "color": "#60a5fa",
+          "density": 1,
+          "style": "dots",
+          "tokenLabel": "PDF"
+        },
+        "payload": {
+          "kind": "file",
+          "content": "",
+          "description": "Files upload straight from disk and never enter the chat."
+        }
+      }
+    }
+  ],
+  "viewport": {
+    "x": 113.5,
+    "y": 270.7,
+    "zoom": 0.97
+  },
+  "meta": {
+    "createdAt": "2026-09-25T03:27:15.195Z",
+    "updatedAt": "2026-09-25T03:30:31.635Z"
+  },
+  "scenario": [
+    {
+      "id": "st_1",
+      "caption": "Session opens at startup from your saved sign-in",
+      "edgeIds": [
+        "e_auth"
+      ],
+      "dir": "forward",
+      "token": "cookies"
+    },
+    {
+      "id": "st_2",
+      "caption": "Claude Code or Codex calls ask() over MCP",
+      "edgeIds": [
+        "e_claude",
+        "e_codex"
+      ],
+      "dir": "forward",
+      "token": "ask"
+    },
+    {
+      "id": "st_3",
+      "caption": "Notebook found by name, from cache",
+      "edgeIds": [
+        "e_cache"
+      ],
+      "dir": "forward",
+      "token": "specs"
+    },
+    {
+      "id": "st_4",
+      "caption": "One HTTPS call on the warm session",
+      "edgeIds": [
+        "e_lib",
+        "e_https"
+      ],
+      "dir": "forward",
+      "token": "ask"
+    },
+    {
+      "id": "st_5",
+      "caption": "NotebookLM answers only from your sources",
+      "edgeIds": [
+        "e_src"
+      ],
+      "dir": "forward",
+      "token": "search"
+    },
+    {
+      "id": "st_6",
+      "caption": "A cited answer comes back",
+      "edgeIds": [
+        "e_src",
+        "e_https"
+      ],
+      "dir": "reverse",
+      "token": "answer [1][2]"
+    },
+    {
+      "id": "st_7",
+      "caption": "Trimmed to the answer and its sources",
+      "edgeIds": [
+        "e_lib"
+      ],
+      "dir": "reverse",
+      "token": "answer"
+    },
+    {
+      "id": "st_8",
+      "caption": "Your agent gets the answer, not your documents",
+      "edgeIds": [
+        "e_claude",
+        "e_codex"
+      ],
+      "dir": "reverse",
+      "token": "cited answer"
+    },
+    {
+      "id": "st_9",
+      "caption": "add_source uploads files straight from disk",
+      "edgeIds": [
+        "e_docs"
+      ],
+      "dir": "forward",
+      "token": "PDF"
+    }
+  ],
+  "flowMode": "scenario"
+}
